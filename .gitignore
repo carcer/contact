@@ -161,6 +161,4 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
-/contact-app/Web.Release.config
-/contact-app/Web.config
-/contact-app/Web.Debug.config
+
