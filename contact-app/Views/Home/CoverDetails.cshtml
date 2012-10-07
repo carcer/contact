@@ -1,0 +1,54 @@
+﻿@model contact_app.Models.CoverDetailsModel
+@using System.Web.Optimization
+@{
+    ViewBag.Title = "About You & our Vacancy";
+    ViewBag.Personal = Session[contact_app.Controllers.HomeController.cPersonalDetails];
+}
+
+<h2>About You &amp; our Vacancy</h2>
+
+<p>
+    Hi @ViewBag.FirstName, tell us a little bit more about yourself.
+</p>
+@using (Html.BeginForm("CoverDetails", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    
+    <fieldset>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReasonForApplying)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.ReasonForApplying)
+            @Html.ValidationMessageFor(model => model.ReasonForApplying)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReasonForAcceptance)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.ReasonForAcceptance)
+            @Html.ValidationMessageFor(model => model.ReasonForAcceptance)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CurriculumVitae)
+        </div>
+        <div class="editor-field">
+            <input type="file" name="CurriculumVitae" />
+            @Html.ValidationMessageFor(model => model.CurriculumVitae)
+        </div>
+
+        <p>
+            <input type="submit" value="Apply" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to your details", "PersonalDetails")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

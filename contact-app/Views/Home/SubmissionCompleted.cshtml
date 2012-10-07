@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Thank You";
+}
+
+<h2>Thank You</h2>
+@if (ViewBag.AlreadyCompleted)
+{
+    <p>@ViewBag.FirstName, thank you for your submission, but you have already attempted to send an email in this session.</p>
+}
+else
+{
+    <p>@ViewBag.FirstName, thank you for your submission.</p>
+}

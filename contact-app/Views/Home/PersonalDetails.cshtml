@@ -1,0 +1,56 @@
+﻿@model contact_app.Models.PersonalDetailsModel
+@using System.Web.Optimization
+@{
+    ViewBag.Title = "Tell us about you";
+}
+
+<h2>Tell us about you</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmailAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmailAddress)
+            @Html.ValidationMessageFor(model => model.EmailAddress)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PrimaryPhoneNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PrimaryPhoneNumber)
+            @Html.ValidationMessageFor(model => model.PrimaryPhoneNumber)
+        </div>
+
+        <p>
+            <input type="submit" value="Next" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
